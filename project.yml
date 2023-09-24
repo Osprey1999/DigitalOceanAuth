@@ -1,5 +1,5 @@
 environment:
-  DB_URI: ${db-mongodb-blr1-15303}
+  DB_URI: "${db-mongodb-blr1-15303}"
   SALT: 10
 packages:
   - name: auth
