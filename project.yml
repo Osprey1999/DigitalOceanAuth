@@ -6,3 +6,5 @@ packages:
     actions:
       - name: signUp
         runtime: 'nodejs:default'
+        limits:
+          timeout: 5000
