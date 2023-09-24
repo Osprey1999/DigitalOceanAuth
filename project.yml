@@ -1,6 +1,6 @@
 environment:
   DB_URI: "${DB_URI}"
-  SALT: 10
+  SALT: "{SALT}"
 packages:
   - name: auth
     actions:
