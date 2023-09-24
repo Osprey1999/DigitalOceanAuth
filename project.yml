@@ -2,4 +2,4 @@ packages:
   - name: auth
     actions:
       - name: signUp
-        runtime: 'nodejs:default'
+        runtime: 'nodejs:20.6.1'
