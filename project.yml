@@ -1,5 +1,7 @@
+environment:
+  DB_URI: "${DB_URI}"
 packages:
   - name: auth
     actions:
       - name: signUp
-        runtime: 'nodejs:20.6.1'
+        runtime: 'nodejs:default'
