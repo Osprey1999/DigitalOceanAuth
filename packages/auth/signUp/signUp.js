@@ -2,7 +2,7 @@ const signUpBodyValidation = require("./utils/validateSchema")
 const User = require("./models/User");
 const bcrypt = require("bcrypt");
 
-module.exports.main =  async (event,context) => {
+module.exports.main =  async (event) => {
   const {http,...body} = event
   res = {
       status: 200,
