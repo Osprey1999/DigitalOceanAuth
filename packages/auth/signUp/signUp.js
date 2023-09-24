@@ -3,9 +3,9 @@ const User = require("./models/User");
 const bcrypt = require("bcrypt");
 
 module.exports.main =  async (event) => {
-  const {http,...body} = event
+  const {payload} = event
   try {
-    const { error } = signUpBodyValidation(body);
+    const { error } = signUpBodyValidation(payload);
     if (error){
         res = {
           statusCode: 400,
@@ -16,7 +16,7 @@ module.exports.main =  async (event) => {
         }
       return res
     }
-    const user = await User.findOne({ email: body.email });
+    const user = await User.findOne({ email: payload.email });
     if (user){
       res = {
         statusCode: 400,
@@ -29,9 +29,9 @@ module.exports.main =  async (event) => {
     }
 
     const salt = await bcrypt.genSalt(Number(process.env.SALT));
-    const hashPassword = await bcrypt.hash(body.password, salt);
+    const hashPassword = await bcrypt.hash(payload.password, salt);
 
-    await User.create({ ...body, password: hashPassword });
+    await User.create({ ...payload, password: hashPassword });
     return res = {
       statusCode: 200,
       body:{
